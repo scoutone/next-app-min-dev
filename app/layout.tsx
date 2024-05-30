@@ -4,7 +4,7 @@ import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 import { theme } from "../theme";
 
 export const metadata = {
-  title: "Mantine Next.js template",
+  title: "Dynamic Data Component Example",
   description: "I am using Mantine with Next.js!",
 };
 
@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: any }) {
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
       </head>
-      <body>
+      <body style={{padding: '20px'}}>
         <MantineProvider theme={theme}>{children}</MantineProvider>
       </body>
     </html>

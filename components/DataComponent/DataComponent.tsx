@@ -5,74 +5,13 @@ import { get_render_props, get_render_prop, component, COMPONENTS_ENUM_C, expand
 import { createElement } from 'react';
 import JsxParser from 'react-jsx-parser';
 import React from 'react';
-import { useSearchParams } from 'next/navigation'
-
+import { useSearchParams } from 'next/navigation';
+import { remove_keys, rename_keys, transform, join_if_value, rollup } from './util';
 
 //table_border = 1;
 
-function string_escape(s) {
-    return s ? s.replace(/\\/g,'\\\\')
-                .replace(/\n/g,'\\n')
-                .replace(/\t/g,'\\t')
-                .replace(/\v/g,'\\v')
-                .replace(/`/g,"\\`")
-                //.replace(/'/g,"\\'")
-                //.replace(/"/g,'\\"')
-                .replace(/[\x00-\x1F\x80-\x9F]/g,hex) : s;
-    function hex(c) { var v = '0'+c.charCodeAt(0).toString(16); return '\\x'+v.substr(v.length-2); }
-}
 
-function transform(data, transform_js) {
-	let trans_func = eval('(data) => ' +string_escape(transform_js));
-	return trans_func(data);
-}
 
-function remove_keys(data, keys) {
-	let removed = {};
-	for (const [key, value] of Object.entries(data)) {
-		if(!keys.includes(key)) {
-	    	removed[key] = value;
-		}
-	}
-	return removed;
-}
-
-function rename_keys(data, key_name_map) {
-	let renamed = {};
-	for (const [key, value] of Object.entries(data)) {
-		renamed[key in key_name_map ? key_name_map[key] : key] = value;
-	}
-	return renamed;
-}
-
-function rollup(data, field_name, formatter=null, order=null, order_values_field=null, order_values='asc', rollup_as='dict') {
-	let field_values = [...new Set(data.map((item) => item[field_name]))];
-	if(order != null) {
-		field_values.sort((a,b) => (order == 'asc' ? 1 : -1) * a.localeCompare(b));
-	}
-	
-	if(formatter != null) formatter = eval('(data) => '+formatter);
-	
-	let rolled = (rollup_as == 'list' ? [] : {});
-	field_values.forEach((field_value) => {
-		let value_rows = data.filter((item) => item[field_name] == field_value);
-		if(order_values_field != null) {
-			value_rows.sort((a,b) => (order_values == 'asc' ? 1 : -1) * a[order_values_field].localeCompare(b[order_values_field]));
-		}
-		if(formatter != null) {
-			value_rows = value_rows.map((item) => formatter(item));
-		}
-		
-		if(rollup_as == 'list') {
-			rolled.push(field_value);
-			rolled.push(value_rows);
-		} else {
-			rolled[field_value] = value_rows;
-		}
-	});
-	
-	return rolled;
-}
 
 function parse_jsx(jsx, props) {
 	return <JsxParser jsx={jsx} components={{ DataComponent }} bindings={{ props: props, util: {rollup: rollup, stringify: JSON.stringify} }} />;

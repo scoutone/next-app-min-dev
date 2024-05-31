@@ -8,6 +8,7 @@ import  * as tables from './tables';
 import * as tables_advanced_config from './tables_advanced_config';
 import * as dr_price_1 from './dr_price_example_1';
 import * as dr_price_2 from './dr_price_example_2';
+import * as lapeer_1 from './lapeer_example';
 
 const debug_examples_files = [];
 const public_example_files = [
@@ -20,7 +21,8 @@ const public_example_files = [
   tables,
   tables_advanced_config,
   dr_price_1, 
-  dr_price_2
+  dr_price_2,
+  lapeer_1
 ];
 
 function build_item(x) {

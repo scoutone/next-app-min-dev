@@ -5,10 +5,9 @@ import { get_render_props, get_render_prop, component, COMPONENTS_ENUM_C, expand
 import { createElement } from 'react';
 import JsxParser from 'react-jsx-parser';
 import React from 'react';
+import { useSearchParams } from 'next/navigation'
 
-const debug=false
 
-let table_border=(debug? 1 : 0);
 //table_border = 1;
 
 function string_escape(s) {
@@ -81,8 +80,15 @@ function parse_jsx(jsx, props) {
 
 
 export class DataComponent extends React.Component {
+  
 
 	render() {
+    //const q = useSearchParams();
+    //const q = useSearchParams();
+    //const debug = q.has('debug');
+    let debug=this.props.render_props ? this.props.render_props.debug : false;
+    let table_border=(debug? 1 : 0);
+    
 		
 		const titleCase = (s) =>
 			s.replace(/^[-_]*(.)/, (_, c) => c.toUpperCase())       // Initial char (after -/_)

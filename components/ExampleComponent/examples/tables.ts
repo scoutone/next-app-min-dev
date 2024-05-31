@@ -27,10 +27,10 @@ export const example = {
       "Bake at 550 for 10 minutes"
     ]
   },
-  "render_props": {
+  "str_render_props": `{
     ".summary": {
       "_table_format": [
-        [["H", "Dish"], "dish", ["H", "Servings"], "servings"],
+        [["H", "Dish"],      "dish",      ["H", "Servings"],  "servings"],
         [["H", "Prep Time"], "prep_time", ["H", "Bake Time"], "bake_time"]
       ]
     },
@@ -44,5 +44,5 @@ export const example = {
         ["ingredient", "amount"]
       ]
     }
-  }
+  }`
 };

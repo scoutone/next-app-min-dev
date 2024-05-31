@@ -27,7 +27,7 @@ export const example = {
       "Bake at 550 for 10 minutes"
     ]
   },
-  "render_props": {
+  "str_render_props": `{
     ".summary": {
       "_suppress_header" : true,
       "_suppress_hr": true,
@@ -73,5 +73,5 @@ export const example = {
     ".directions": {
       "_number": true
     }
-  }
+  }`
 };

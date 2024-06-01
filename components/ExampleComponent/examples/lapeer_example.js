@@ -652,7 +652,7 @@ export const example = {
       "pinhole_additional_letter_os": null,
       "pinhole_additional_letter_ou": null,
       "test_used_at_distance": "Snellen Letters",
-      "notes": null
+      "notes": "Test Notes"
     }
   },
   "str_render_props": `{
@@ -771,7 +771,8 @@ export const example = {
           [["H", ""],   ["H", "Dist"], ["H", "Dist Addl Letter"],       ["H", "Near"], ["H", "Near Addl Letter"],   ["H", "Pinhole"], ["H", "Pinhole Addl Letter"]],
           [["H", "OD"], "distance_od", "distance_additional_letter_od", "near_od",     "near_additional_letter_od", "pinhole_od",     "pinhole_additional_letter_od"],
           [["H", "OS"], "distance_os", "distance_additional_letter_os", "near_os",     "near_additional_letter_os", "pinhole_os",     "pinhole_additional_letter_os"],
-          [["H", "OU"], "distance_ou", "distance_additional_letter_ou", "near_ou",     "near_additional_letter_ou", "pinhole_ou",     "pinhole_additional_letter_ou"]
+          [["H", "OU"], "distance_ou", "distance_additional_letter_ou", "near_ou",     "near_additional_letter_ou", "pinhole_ou",     "pinhole_additional_letter_ou"],
+          [["H", "Test Used at Dist", 2], "test_used_at_distance", ["H", "Notes"], ["", "\${props.data.notes}", 3, {"text-align": "left"}]]
         ],
         "border": 1,
         "style": {
@@ -780,12 +781,16 @@ export const example = {
           },
           "th": {
             "border": "1px solid",
-            "min-width": "75px"
+            "min-width": "75px",
+            "padding-left": "5px",
+            "padding-right": "5px"
           },
           "td": {
             "border": "1px solid",
             "min-width": "75px",
-            "text-align": "center"
+            "text-align": "center",
+            "padding-left": "5px",
+            "padding-right": "5px"
           }
         }
       }

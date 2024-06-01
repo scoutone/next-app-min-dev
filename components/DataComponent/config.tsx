@@ -215,17 +215,20 @@ function expand_data_cell_format(f, styles) {
 		else if(f.length == 2) {
 			f =  {'cell_type': (f[0] == 'H' ? 'header' : 'value'), 'value': f[1]};
 		}
-		else if(f.length == 3) {
-			f =  {'cell_type': (f[0] == 'H' ? 'header' : 'value'), 'value': f[1], 'style': f[2]};
-		}
+    else if(f.length == 3) {
+      f =  {'cell_type': (f[0] == 'H' ? 'header' : 'value'), 'value': f[1], 'colspan': f[2]};
+    }
+    else if(f.length == 4) {
+      f =  {'cell_type': (f[0] == 'H' ? 'header' : 'value'), 'value': f[1], 'colspan': f[2], 'style': f[3]};
+    }
 	}
 	
 	if(styles) {
 		if(f.cell_type == 'header' && styles.th) {
-			f['style'] = styles.th;
+      f['style'] = Object.assign({}, styles.th, f.style || {});
 		}
 		else if(f.cell_type == 'value' && styles.td) {
-			f['style'] = styles.td;
+      f['style'] = Object.assign({}, styles.td, f.style || {});
 		}
 	}
 	

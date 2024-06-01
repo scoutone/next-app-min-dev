@@ -78,14 +78,14 @@ export class DataComponent extends React.Component {
 
 					var rows = table_data.rows.map((row, ridx) => {
 						var cols = row.cells.map((cell, cidx) => {
-							let style={};
-							if(cell.style != null) style = cell.style;
+							let style = cell.style || {};
+							let colspan = cell.colspan || 1;
 							
 							if (cell.cell_type == 'header') {
-								return <th style={style}>{cell.value}</th>;
+								return <th style={style} colspan={colspan}>{cell.value}</th>;
 							}
 							else {
-								return <td style={style}>{cell.value}</td>;
+								return <td style={style} colspan={colspan}>{cell.value}</td>;
 							}
 						});
 						return <tr>{cols}</tr>;
@@ -201,13 +201,14 @@ export class DataComponent extends React.Component {
 					var rows = table_data.rows.map((row, ridx) => {
 						let row_style = row.style ? row.style : {};
 						var cols = row.cells.map((cell, cidx) => {
-							let cell_style = cell.style ? cell.style : {};
+							let cell_style = cell.style || {};
+							let colspan = cell.colspan  || 1;
 							
 							if (cell.cell_type == 'header') {
-								return <th style={cell_style}>{cell.value}</th>;
+								return <th style={cell_style} colspan={colspan}>{cell.value}</th>;
 							}
 							else {
-								return <td style={cell_style}>{cell.value}</td>;
+								return <td style={cell_style} colspan={colspan}>{cell.value}</td>;
 							}
 						});
 						return <tr style={row_style}>{cols}</tr>;

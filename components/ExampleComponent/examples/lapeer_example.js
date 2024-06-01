@@ -726,40 +726,28 @@ export const example = {
       "_transform_js": "data.condition"
     },
     ".eye_disease": {
-      "_transform_js": "remove_null_entries(data)"
+      "_class": "noted_symptoms_section"
     },
-    ".eye_disease.positive_responses": {
-      "_number": true
-    },
-    ".eye_disease.negative_responses": {
-      "_number": true
-    },
-    ".eye_disease.[]": {
-      "_transform_js": "join_valued(': ', [data.condition, data.notes])"
+    ".eye_disease": {
+      "_class": "noted_symptoms_section"
     },
     ".current_eye_symptoms": {
-      "_transform_js": "remove_null_entries(data)"
-    },
-    ".current_eye_symptoms.positive_responses": {
-      "_number": true
-    },
-    ".current_eye_symptoms.negative_responses": {
-      "_number": true
-    },
-    ".current_eye_symptoms.[]": {
-      "_transform_js": "join_valued(': ', [data.condition, data.notes])"
+      "_class": "noted_symptoms_section"
     },
     ".review_symptoms": {
+      "_class": "noted_symptoms_section"
+    },
+    "noted_symptoms_section": {
       "_transform_js": "remove_null_entries(data)"
     },
-    ".review_symptoms.positive_responses": {
-      "_number": true
-    },
-    ".review_symptoms.negative_responses": {
-      "_number": true
-    },
-    ".review_symptoms.[]": {
+    "noted_symptoms_section.[]": {
       "_transform_js": "join_valued(': ', [data.condition, data.notes])"
+    },
+    "noted_symptoms_section.positive_responses": {
+      "_number": true
+    },
+    "noted_symptoms_section.negative_responses": {
+      "_number": true
     },
     ".social_history_general": {
       "_transform_js": "{ let attributes = {}; data.attributes.filter((x) => x.value != null && x.value.toString().trim() > '').map((x) => attributes[x.attribute] = x.value); return attributes; }"

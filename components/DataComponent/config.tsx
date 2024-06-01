@@ -1,3 +1,4 @@
+
 import { createElement } from "react";
 
 
@@ -17,9 +18,10 @@ export function get_render_jsx(path, render_props) {
 	return render_jsx;
 }
 	*/
+	
 
 export function get_render_props(path, render_props) {
-	let keys = enumerate_path_keys(path).reverse();
+	let keys = enumerate_path_keys(path, render_props).reverse();
 	let props = {};
 	
 	//go in order of least specic to most and overwrite
@@ -43,49 +45,83 @@ export function get_render_prop(path, prop_name, render_props) {
 }
 
 export function test() {
+  let render_props = {
+    "noted_symptoms_section": {
+      "_transform_js": "remove_null_entries(data)"
+    },
+    "noted_symptoms_section.positive_responses": {
+      "_number": true
+    },
+    "noted_symptoms_section.negative_responses": {
+      "_number": true
+    },
+    ".eye_disease": {
+      "_class": "noted_symptoms_section"
+    },
+  };
 
-	//return table_format();
-	//return get_render_prop('.assessment_plan[0]', '_render_js', g_render_props);
-	//return JSON.stringify(get_render_props('.assessment_plan[0]', g_render_props), null, 2);
-	let val = enumerate_path_keys('.hello[4].assessment_plan[0].world.test[2]')
-	//let val = general_regex('.hello[4].assessment_plan[].world.test[2]')
-	return <pre>{JSON.stringify(val, null, 2)}</pre>;
+  return JSON.stringify(['test', render_props, enumerate_path_keys(".eye_disease.positive_responses", render_props), get_render_props(".eye_disease.positive_responses", render_props)], null, 2);
 }
 
-function enumerate_path_keys(path) {
-	let keys = [];
-	
-	let parts = path.split('.');
-	for (let i = 1; i < parts.length; i++) {
-		let new_paths = [];
-		for (let j=0; j<keys.length; j++) {
-			new_paths.push(keys[j] + '.' + parts[i]);
-		
-			if(parts[i].endsWith(']')) {
-				new_paths.push(keys[j] + '.' + parts[i].split('[')[0] + '[]');
-				new_paths.push(keys[j] + '.[]');
-			}
-		}
-		
-		if(i==1){
-			new_paths.push('.' + parts[i]);
-		}
-		new_paths.push(parts[i]);
-		
-		if(parts[i].endsWith(']')) {
-			if(i==1) {
-				new_paths.push('.' + parts[i].split('[')[0] + '[]');
-				new_paths.push('.[]');
-			}
-			new_paths.push(parts[i].split('[')[0] + '[]');
-			new_paths.push('[]');
-		}
+function enumerate_path_keys(path, render_props) {
+  
+  let class_assignments = {};
+  for (const [key, value] of Object.entries(render_props || {})) {
+    if(value._class) {
+      class_assignments[key] = value._class;
+    }
+  }
+  
+  let keys = [];
+  
+  let parts = path.split('.');
+  for (let i = 1; i < parts.length; i++) {
+    let new_paths = [];
+    for (let j=0; j<keys.length; j++) {
+      new_paths.push(keys[j] + '.' + parts[i]);
+    
+      if(parts[i].endsWith(']')) {
+        new_paths.push(keys[j] + '.' + parts[i].split('[')[0] + '[]');
+        new_paths.push(keys[j] + '.[]');
+      }
+    }
+    
+    if(i==1){
+      new_paths.push('.' + parts[i]);
+    }
+    new_paths.push(parts[i]);
+    
+    if(parts[i].endsWith(']')) {
+      if(i==1) {
+        new_paths.push('.' + parts[i].split('[')[0] + '[]');
+        new_paths.push('.[]');
+      }
+      new_paths.push(parts[i].split('[')[0] + '[]');
+      new_paths.push('[]');
+    }
 
-		keys = new_paths;
-	}
+    keys = new_paths;
+  }
+  
+  let with_classes = [];
+  keys.forEach((k) => {
+    with_classes.push(k);
+    for (const [class_path, clazz] of Object.entries(class_assignments)) {
+      let idx = k.indexOf(class_path);
+      if(class_path.startsWith('.')) {
+        if(idx == 0) {
+          with_classes.push(k.replace(class_path, clazz).substring(idx));
+        }
+      }
+      else if(idx > -1 && !k.startsWith('.')) {
+          with_classes.push(k.replace(class_path, clazz).substring(idx));
+      }
+    }
+  });
 
-	return keys;
+  return with_classes;  //keys;
 }
+
 
 function general_regex(path) {
 	path = path.replace(/\[/g, '([');

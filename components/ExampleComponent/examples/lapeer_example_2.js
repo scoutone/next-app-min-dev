@@ -1,203 +1,66 @@
 export const example = {
-  "name": "Lapeer 1",
-  "description": "Lapeer Example Exam Summary 1 (De-Identified)",
+  "name": "Lapeer 2",
+  "description": "Lapeer Example Exam Summary 2 (De-Identified)",
   "data": {
-    "id_patient": 100034,
-    "customer_id": 3239,
-    "patient_encounter_id": 268118,
-    "exam_number": "178992",
-    "exam_date": "09/08/2022",
-    "provider": "The Doctor",
+    "id_patient": 112085,
+    "customer_id": 5554,
+    "patient_encounter_id": 2836,
+    "exam_number": "100843",
+    "exam_date": "03/25/2016",
+    "provider": "The Doctor O.D.",
     "technician": null,
-    "location": "Some Office",
+    "location": "The Location",
     "patient": {
-      "id_patient": 100034,
-      "customer_id": 3239,
-      "first_name": "Jane",
+      "id_patient": 112085,
+      "customer_id": 5554,
+      "first_name": "The",
       "middle_name": "",
       "last_name": "Patient",
-      "full_name": "Jane Patient",
-      "preferred_name": "Jane",
-      "date_of_birth": "01/01/1960",
-      "age": 55,
+      "full_name": "The Patient",
+      "preferred_name": "The",
+      "date_of_birth": "01/01/2000",
+      "age": 4,
       "home_phone": "(111) 111-1111",
       "mobile_phone": null,
-      "work_phone": "(222) 222-2222",
+      "work_phone": null,
       "other_phone": null,
       "primary_phone": "Home"
     },
     "chief_complaint": {
-      "chief_complaint": "Needs Updated Rx",
-      "extended_hpi": "no c/O's"
+      "chief_complaint": "pt c/o blur",
+      "extended_hpi": null
     },
     "allergy_history": {
-      "id": 267024,
-      "is_reviewed": true,
-      "reviewed_by": "The Doctor",
-      "reviewed_date": "3/8/2016",
-      "records": [
-        {
-          "record_number": 1,
-          "allergy": "Bactrim (trimethoprim-sulfamethoxazole)",
-          "reaction": "unknown"
-        },
-        {
-          "record_number": 2,
-          "allergy": "seasonal",
-          "reaction": "unknown"
-        }
-      ]
+      "id": 2821,
+      "is_reviewed": false,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "records": null
     },
-    "past_surgeries": {
-      "id": 266959,
-      "records": [
-        {
-          "record_number": 1,
-          "surgery_type": null,
-          "surgery": "Cesarean section"
-        },
-        {
-          "record_number": 2,
-          "surgery_type": "General",
-          "surgery": "Gall bladder surgery"
-        },
-        {
-          "record_number": 3,
-          "surgery_type": "General",
-          "surgery": "Hip arthroplasty"
-        },
-        {
-          "record_number": 4,
-          "surgery_type": "General",
-          "surgery": "Stomach Surgery"
-        },
-        {
-          "record_number": 5,
-          "surgery_type": "General",
-          "surgery": "Tubal ligation"
-        }
-      ]
-    },
+    "past_surgeries": null,
     "medication_history": {
-      "id": 267024,
-      "is_reviewed": true,
-      "reviewed_by": "The Doctor",
-      "records": [
-        {
-          "record_number": 1,
-          "action": "Take",
-          "brand_name": "Lasix",
-          "generic_name": "furosemide",
-          "form": "tablet",
-          "strength": null,
-          "dose_amount": "20",
-          "dose_unit": "mg",
-          "route": "by mouth",
-          "dose_timing": "twice a day"
-        },
-        {
-          "record_number": 2,
-          "action": "Take",
-          "brand_name": "Prinivil",
-          "generic_name": "lisinopril",
-          "form": "tablet",
-          "strength": "20 mg",
-          "dose_amount": "20",
-          "dose_unit": "mg",
-          "route": "by mouth",
-          "dose_timing": "once a day"
-        },
-        {
-          "record_number": 3,
-          "action": "Take",
-          "brand_name": "Wellbutrin XL",
-          "generic_name": "bupropion HCl",
-          "form": "tablet",
-          "strength": "150 mg",
-          "dose_amount": "1",
-          "dose_unit": "tablet",
-          "route": "by mouth",
-          "dose_timing": "once a day"
-        },
-        {
-          "record_number": 4,
-          "action": null,
-          "brand_name": "aleve",
-          "generic_name": null,
-          "form": null,
-          "strength": null,
-          "dose_amount": null,
-          "dose_unit": null,
-          "route": null,
-          "dose_timing": null
-        },
-        {
-          "record_number": 5,
-          "action": null,
-          "brand_name": "maxzide",
-          "generic_name": null,
-          "form": null,
-          "strength": null,
-          "dose_amount": null,
-          "dose_unit": null,
-          "route": null,
-          "dose_timing": null
-        },
-        {
-          "record_number": 6,
-          "action": null,
-          "brand_name": "zyrtec-d",
-          "generic_name": null,
-          "form": null,
-          "strength": null,
-          "dose_amount": null,
-          "dose_unit": null,
-          "route": null,
-          "dose_timing": null
-        },
-        {
-          "record_number": 7,
-          "action": null,
-          "brand_name": "lisinpril",
-          "generic_name": null,
-          "form": null,
-          "strength": null,
-          "dose_amount": null,
-          "dose_unit": null,
-          "route": null,
-          "dose_timing": null
-        }
-      ]
+      "id": 2821,
+      "is_reviewed": false,
+      "reviewed_by": null,
+      "records": null
     },
     "family_history": {
       "positive_responses": [
         {
           "condition": "arthritis",
-          "relation": "Mother"
+          "relation": "Grandparents"
         },
         {
-          "condition": "cancer",
-          "relation": "Mother"
+          "condition": "blindness",
+          "relation": "Maternal uncle"
         },
         {
-          "condition": "cataract",
-          "relation": "Parents"
-        },
-        {
-          "condition": "diabetes",
-          "relation": "Father"
-        },
-        {
-          "condition": "heart_disease",
-          "relation": "Father"
+          "condition": "glaucoma",
+          "relation": "Maternal grandparent"
         },
         {
           "condition": "high_blood_pressure",
-          "relation": "Parents"
-        },
-        {
-          "condition": "stroke",
-          "relation": "Mother"
+          "relation": "Grandparents"
         }
       ],
       "negative_responses": [
@@ -206,7 +69,11 @@ export const example = {
           "relation": null
         },
         {
-          "condition": "blindness",
+          "condition": "cancer",
+          "relation": null
+        },
+        {
+          "condition": "cataract",
           "relation": null
         },
         {
@@ -214,15 +81,19 @@ export const example = {
           "relation": null
         },
         {
+          "condition": "diabetes",
+          "relation": null
+        },
+        {
           "condition": "eye_tumors",
           "relation": null
         },
         {
-          "condition": "glaucoma",
+          "condition": "glaucoma_suspect",
           "relation": null
         },
         {
-          "condition": "glaucoma_suspect",
+          "condition": "heart_disease",
           "relation": null
         },
         {
@@ -254,6 +125,10 @@ export const example = {
           "relation": null
         },
         {
+          "condition": "stroke",
+          "relation": null
+        },
+        {
           "condition": "thyroid_disease",
           "relation": null
         }
@@ -264,7 +139,7 @@ export const example = {
       "negative_responses": [
         {
           "condition": "Amblyopia",
-          "notes": "test note"
+          "notes": null
         },
         {
           "condition": "Blepharitis",
@@ -442,15 +317,15 @@ export const example = {
       ]
     },
     "review_symptoms": {
-      "last_health_exam_date": "1/26/16",
+      "last_health_exam_date": null,
       "positive_responses": [
         {
-          "condition": "Cardiovascular",
-          "notes": "High BP"
+          "condition": "Ears nose throat",
+          "notes": null
         },
         {
-          "condition": "Muscles bones joints",
-          "notes": "Arthritis"
+          "condition": "Respiratory",
+          "notes": null
         }
       ],
       "negative_responses": [
@@ -463,7 +338,7 @@ export const example = {
           "notes": null
         },
         {
-          "condition": "Ears nose throat",
+          "condition": "Cardiovascular",
           "notes": null
         },
         {
@@ -476,6 +351,10 @@ export const example = {
         },
         {
           "condition": "Genital kidney bladder",
+          "notes": null
+        },
+        {
+          "condition": "Muscles bones joints",
           "notes": null
         },
         {
@@ -496,10 +375,6 @@ export const example = {
         },
         {
           "condition": "Psychiatric",
-          "notes": null
-        },
-        {
-          "condition": "Respiratory",
           "notes": null
         },
         {
@@ -589,14 +464,14 @@ export const example = {
       ]
     },
     "unaided_acuities": {
-      "distance_od": null,
-      "distance_os": null,
+      "distance_od": "20/40",
+      "distance_os": "20/40",
       "distance_ou": null,
       "distance_additional_letter_od": null,
       "distance_additional_letter_os": null,
       "distance_additional_letter_ou": null,
-      "near_od": null,
-      "near_os": null,
+      "near_od": "20/25",
+      "near_os": "20/25",
       "near_ou": null,
       "near_additional_letter_od": null,
       "near_additional_letter_os": null,
@@ -608,14 +483,14 @@ export const example = {
       "pinhole_additional_letter_os": null,
       "pinhole_additional_letter_ou": null,
       "test_used_at_distance": "Snellen",
-      "notes": null
+      "notes": "Lighthouse acuity"
     },
     "spec_acuities": {
-      "distance_od": "20/20",
-      "distance_os": "20/20",
-      "distance_ou": "20/20",
+      "distance_od": null,
+      "distance_os": null,
+      "distance_ou": null,
       "distance_additional_letter_od": null,
-      "distance_additional_letter_os": "-1",
+      "distance_additional_letter_os": null,
       "distance_additional_letter_ou": null,
       "near_od": null,
       "near_os": null,
@@ -651,9 +526,31 @@ export const example = {
       "pinhole_additional_letter_od": null,
       "pinhole_additional_letter_os": null,
       "pinhole_additional_letter_ou": null,
-      "test_used_at_distance": "Snellen Letters",
-      "notes": "Test Notes"
-    }
+      "test_used_at_distance": "Snellen",
+      "notes": null
+    },
+    "autorefractor": [
+      {
+        "method": "Dry",
+        "sphere_od": "+0.25",
+        "sphere_os": "+0.75",
+        "cyl_od": "-0.75",
+        "cyl_os": "-1.00",
+        "axis_od": "088",
+        "axis_os": "110",
+        "notes": null
+      },
+      {
+        "method": "Wet",
+        "sphere_od": "+1.50",
+        "sphere_os": "+1.00",
+        "cyl_od": "-1.25",
+        "cyl_os": "-1.00",
+        "axis_od": "090",
+        "axis_os": "114",
+        "notes": null
+      }
+    ]
   },
   "str_render_props": `{
     ".": {
